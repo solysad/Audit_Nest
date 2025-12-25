@@ -7,13 +7,12 @@ import type { Response, Request } from 'express';
 export class LoginController {
 
   @Get('')
-  @UseGuards(AuthguardGuard) // Guard aplicado na rota de login
+  @UseGuards(AuthguardGuard)
   findRoot(@Res() res : Response ) {
     return res.sendFile('root.html', { root: 'frontend/public/pages' });
   }
   constructor(private readonly loginService: LoginService) {}
   @Get('login')
-  // Futuramente mudar para servir páginas dinamicas
   findPage(@Res() res : Response ) {
     return res.sendFile('login.html', { root: 'frontend/public/pages' });
   }
