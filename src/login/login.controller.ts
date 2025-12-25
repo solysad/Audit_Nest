@@ -1,0 +1,31 @@
+import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
+import { LoginService } from './login.service';
+import { AuthguardGuard } from '../authguard/authguard.guard';
+import type { Response, Request } from 'express';
+
+@Controller()
+export class LoginController {
+
+  @Get('')
+  @UseGuards(AuthguardGuard) // Guard aplicado na rota de login
+  findRoot(@Res() res : Response ) {
+    return res.sendFile('root.html', { root: 'frontend/public/pages' });
+  }
+  constructor(private readonly loginService: LoginService) {}
+  @Get('login')
+  // Futuramente mudar para servir páginas dinamicas
+  findPage(@Res() res : Response ) {
+    return res.sendFile('login.html', { root: 'frontend/public/pages' });
+  }
+  
+  @Post('login')
+  async loginUser(@Body() body: { email: string;}, @Res() res: Response) {
+    const resultToken : Object = await this.loginService.login(body.email, res);
+    return resultToken
+  }
+
+  @Get('logout')
+  logoutUser(@Req() req: Request,) {
+    return req.cookies
+  }
+}
