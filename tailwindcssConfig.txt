@@ -1,0 +1,3 @@
+## Comand start compile tailwindcss
+
+    =>  npx @tailwindcss/cli -i frontend/public/style/input.css -o frontend/public/style/output.css --watch

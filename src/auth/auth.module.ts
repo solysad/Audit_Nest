@@ -8,7 +8,7 @@ import { AuthService } from './auth.service';
     PassportModule,
     JwtModule.register({
       signOptions : {
-      expiresIn : '20s'
+      expiresIn : '60m'
       }
   })],
   providers: [AuthService],

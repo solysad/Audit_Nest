@@ -14,7 +14,7 @@ export class LoginService {
                 sameSite: 'strict',
             });
             
-            res.redirect('/');
+            res.redirect('/Home');
         }catch(error){
             console.error('Erro ao gerar o token:', error);
             return { status: 'error', message: 'Erro ao gerar o token' };

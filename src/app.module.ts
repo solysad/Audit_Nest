@@ -8,6 +8,8 @@ import { join } from 'node:path';
 import { MiddlewareModule } from './middleware/middleware.module';
 import { LoggerModule } from './logger/logger.module';
 import { ConfigModule } from '@nestjs/config';
+import { ClientModule } from './client/client.module';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { ConfigModule } from '@nestjs/config';
     MiddlewareModule,
     LoggerModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    ClientModule,
+    CoreModule,
   ],
   controllers: [],
 

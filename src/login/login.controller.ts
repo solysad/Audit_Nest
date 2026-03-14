@@ -6,15 +6,15 @@ import type { Response, Request } from 'express';
 @Controller()
 export class LoginController {
 
-  @Get('')
+  @Get('Home')
   @UseGuards(AuthguardGuard)
   findRoot(@Res() res : Response ) {
-    return res.sendFile('root.html', { root: 'frontend/public/pages' });
+    return res.sendFile('pageHome.html', { root: 'frontend/pages' });
   }
   constructor(private readonly loginService: LoginService) {}
   @Get('login')
   findPage(@Res() res : Response ) {
-    return res.sendFile('login.html', { root: 'frontend/public/pages' });
+    return res.sendFile('pageLogin.html', { root: 'frontend/pages' });
   }
   
   @Post('login')
@@ -23,7 +23,7 @@ export class LoginController {
     return resultToken
   }
 
-  @Get('logout')
+  @Post('logout')
   logoutUser(@Req() req: Request,) {
     return req.cookies
   }

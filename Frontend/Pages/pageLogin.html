@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="script/login/login.js" defer></script>
+    <script src="script/login/themeToggle.js" defer></script>
+    <title>Login</title>
+</head>
+<body class="h-screen w-full flex items-center justify-center bg-white text-black">
+
+    <form action="/login" method="post">
+        <div class="w-96 flex flex-col gap-4 m-auto p-6 border rounded-xl">
+            <div class="h-80 flex flex-col justify-between">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h1 class="font-light text-3xl">Login</h1>
+                    </div>
+                    <div class="hover:cursor-pointer" id="theme-toggle">
+                        <img src="/assets/icons/dark_mode_icon.svg" alt="icone de modo escuro" id="dark-mode-icon" class="w-8 h-8">
+                    </div>
+                </div>
+                <div class="w-full h-12 bg-gray-100 input-group rounded-2xl flex items-center justify-evenly p-2">
+                    <label for="email" class="w-[44.50px]">E-mail</label>
+                    <input type="text" id="email" name="email" class="w-52 h-7 text-xs border rounded-sm px-1 focus:outline-none" required maxlength="50">
+                </div>
+                <div class="w-full h-12 bg-gray-100 flex flex-row items-center justify-evenly rounded-2xl p-2">
+                    <label class="w-[44.50px]" for="password">Senha</label>
+                    <div class="w-52 h-7 border rounded-sm flex flex-row items-center px-1 m-0" id="box-input-svg">
+                        <input type="password" id="password" name="password"  required maxlength="20" class="w-41.25 text-xs focus:outline-none">
+                        <img class="w-5 h-5 ml-auto" id="eye-visibility" src="assets/icons/eye-visibility.svg" alt="icone de olho para ativar a visualização da senha">
+                    </div>
+                </div>
+
+                <div class="w-full flex justify-center">
+                    <button type="submit" class="w-40 h-10 bg-gray-50 border rounded-lg">Entrar</button>
+                </div>
+                <p class="italic text-xs">Não tem uma conta? <a href="/register" class="hover:cursor-pointer">Registrar</a></p>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
