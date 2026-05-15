@@ -7,6 +7,6 @@ export class ClientController {
 
     @Get("Clientes")
     findAll(@Res() res : Response) {
-         return res.sendFile('pageCliente.html', { root: 'frontend/pages/PageCliente' });
+         return res.sendFile('pageCliente.html', { root: 'Frontend/Pages/PageCliente' });
     }
 }

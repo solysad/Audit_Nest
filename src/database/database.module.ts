@@ -1,30 +1,25 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-// import { User } from './user.model';
-import { Sequelize } from 'sequelize';
+
 
 @Module({
   imports: [
     SequelizeModule.forRoot({
-      dialect: 'mysql', // ou mysql, sqlite, mssql
+      dialect: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'root',
-      password: '40028922',
+      username: 'desenvolvimento',
+      password: '123456789',
       database: 'project_auditor',
       autoLoadModels: true,
-      synchronize: true, // cria tabelas automaticamente
-      // models: [User],
+      synchronize: true,
     }),
   ],
+  providers: [],
+  exports: [SequelizeModule],
 })
 export class DatabaseModule {
-  constructor (private readonly sequelize: Sequelize){
-    try {
-      this.sequelize.authenticate();
-      console.log('Conexão com o banco de dados estabelecida com sucesso.');
-    } catch (error) {
-      console.error('Não foi possível conectar ao banco de dados:', error);
-    }
+  constructor() {
+    console.log('DatabaseModule carregado.');
   }
 }

@@ -18,7 +18,7 @@ import { CoreModule } from './core/core.module';
     DatabaseModule, 
     LoginModule,
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'frontend','public'),
+      rootPath: join(__dirname, '..', 'Frontend','Public'),
     }),
     MiddlewareModule,
     LoggerModule,
